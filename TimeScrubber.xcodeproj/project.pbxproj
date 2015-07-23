@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29645C001B5CCF7D00BB2DD7 /* AMPopTip+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29645BF81B5CCF7D00BB2DD7 /* AMPopTip+Animation.m */; };
+		29645C011B5CCF7D00BB2DD7 /* AMPopTip+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = 29645BFA1B5CCF7D00BB2DD7 /* AMPopTip+Draw.m */; };
+		29645C021B5CCF7D00BB2DD7 /* AMPopTip+Entrance.m in Sources */ = {isa = PBXBuildFile; fileRef = 29645BFC1B5CCF7D00BB2DD7 /* AMPopTip+Entrance.m */; };
+		29645C031B5CCF7D00BB2DD7 /* AMPopTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 29645BFE1B5CCF7D00BB2DD7 /* AMPopTip.m */; };
+		299EBAEC1B270B460069DE26 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBAEB1B270B460069DE26 /* main.m */; };
+		299EBAEF1B270B460069DE26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBAEE1B270B460069DE26 /* AppDelegate.m */; };
+		299EBAF21B270B460069DE26 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBAF11B270B460069DE26 /* ViewController.m */; };
+		299EBAF51B270B460069DE26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 299EBAF31B270B460069DE26 /* Main.storyboard */; };
+		299EBAF71B270B460069DE26 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 299EBAF61B270B460069DE26 /* Images.xcassets */; };
+		299EBAFA1B270B460069DE26 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 299EBAF81B270B460069DE26 /* LaunchScreen.xib */; };
+		299EBB061B270B460069DE26 /* TimeScrubberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB051B270B460069DE26 /* TimeScrubberTests.m */; };
+		299EBB171B270BBF0069DE26 /* TimeScrubber.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB101B270BBF0069DE26 /* TimeScrubber.m */; };
+		299EBB181B270BBF0069DE26 /* TimeScrubberBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB121B270BBF0069DE26 /* TimeScrubberBorder.m */; };
+		299EBB191B270BBF0069DE26 /* TimeScrubberControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB141B270BBF0069DE26 /* TimeScrubberControl.m */; };
+		299EBB1A1B270BBF0069DE26 /* TimeScrubberLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB161B270BBF0069DE26 /* TimeScrubberLabel.m */; };
+		299EBB201B2725E50069DE26 /* ScrollWithDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB1F1B2725E50069DE26 /* ScrollWithDates.m */; };
+		299EBB321B272C2A0069DE26 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 299EBB231B272C2A0069DE26 /* DateTools.bundle */; };
+		299EBB331B272C2A0069DE26 /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB271B272C2A0069DE26 /* DTError.m */; };
+		299EBB341B272C2A0069DE26 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB291B272C2A0069DE26 /* DTTimePeriod.m */; };
+		299EBB351B272C2A0069DE26 /* DTTimePeriodChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB2B1B272C2A0069DE26 /* DTTimePeriodChain.m */; };
+		299EBB361B272C2A0069DE26 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB2D1B272C2A0069DE26 /* DTTimePeriodCollection.m */; };
+		299EBB371B272C2A0069DE26 /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB2F1B272C2A0069DE26 /* DTTimePeriodGroup.m */; };
+		299EBB381B272C2A0069DE26 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB311B272C2A0069DE26 /* NSDate+DateTools.m */; };
+		299EBB3E1B281A110069DE26 /* ScrollWithVideoFragments.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB3D1B281A110069DE26 /* ScrollWithVideoFragments.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		299EBB001B270B460069DE26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 299EBADE1B270B460069DE26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 299EBAE51B270B460069DE26;
+			remoteInfo = TimeScrubber;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		29645BF71B5CCF7D00BB2DD7 /* AMPopTip+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMPopTip+Animation.h"; sourceTree = "<group>"; };
+		29645BF81B5CCF7D00BB2DD7 /* AMPopTip+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMPopTip+Animation.m"; sourceTree = "<group>"; };
+		29645BF91B5CCF7D00BB2DD7 /* AMPopTip+Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMPopTip+Draw.h"; sourceTree = "<group>"; };
+		29645BFA1B5CCF7D00BB2DD7 /* AMPopTip+Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMPopTip+Draw.m"; sourceTree = "<group>"; };
+		29645BFB1B5CCF7D00BB2DD7 /* AMPopTip+Entrance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMPopTip+Entrance.h"; sourceTree = "<group>"; };
+		29645BFC1B5CCF7D00BB2DD7 /* AMPopTip+Entrance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMPopTip+Entrance.m"; sourceTree = "<group>"; };
+		29645BFD1B5CCF7D00BB2DD7 /* AMPopTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPopTip.h; sourceTree = "<group>"; };
+		29645BFE1B5CCF7D00BB2DD7 /* AMPopTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPopTip.m; sourceTree = "<group>"; };
+		29645BFF1B5CCF7D00BB2DD7 /* AMPopTipDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPopTipDefaults.h; sourceTree = "<group>"; };
+		29645C041B5CCF9300BB2DD7 /* GlobalDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalDefines.h; sourceTree = "<group>"; };
+		299EBAE61B270B460069DE26 /* TimeScrubber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeScrubber.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		299EBAEA1B270B460069DE26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		299EBAEB1B270B460069DE26 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		299EBAED1B270B460069DE26 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		299EBAEE1B270B460069DE26 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		299EBAF01B270B460069DE26 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		299EBAF11B270B460069DE26 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		299EBAF41B270B460069DE26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		299EBAF61B270B460069DE26 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		299EBAF91B270B460069DE26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		299EBAFF1B270B460069DE26 /* TimeScrubberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeScrubberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		299EBB041B270B460069DE26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		299EBB051B270B460069DE26 /* TimeScrubberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeScrubberTests.m; sourceTree = "<group>"; };
+		299EBB0F1B270BBF0069DE26 /* TimeScrubber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeScrubber.h; sourceTree = "<group>"; };
+		299EBB101B270BBF0069DE26 /* TimeScrubber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeScrubber.m; sourceTree = "<group>"; };
+		299EBB111B270BBF0069DE26 /* TimeScrubberBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeScrubberBorder.h; sourceTree = "<group>"; };
+		299EBB121B270BBF0069DE26 /* TimeScrubberBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeScrubberBorder.m; sourceTree = "<group>"; };
+		299EBB131B270BBF0069DE26 /* TimeScrubberControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeScrubberControl.h; sourceTree = "<group>"; };
+		299EBB141B270BBF0069DE26 /* TimeScrubberControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeScrubberControl.m; sourceTree = "<group>"; };
+		299EBB151B270BBF0069DE26 /* TimeScrubberLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeScrubberLabel.h; sourceTree = "<group>"; };
+		299EBB161B270BBF0069DE26 /* TimeScrubberLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeScrubberLabel.m; sourceTree = "<group>"; };
+		299EBB1E1B2725E50069DE26 /* ScrollWithDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollWithDates.h; sourceTree = "<group>"; };
+		299EBB1F1B2725E50069DE26 /* ScrollWithDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollWithDates.m; sourceTree = "<group>"; };
+		299EBB231B272C2A0069DE26 /* DateTools.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DateTools.bundle; sourceTree = "<group>"; };
+		299EBB241B272C2A0069DE26 /* DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTools.h; sourceTree = "<group>"; };
+		299EBB251B272C2A0069DE26 /* DTConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTConstants.h; sourceTree = "<group>"; };
+		299EBB261B272C2A0069DE26 /* DTError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTError.h; sourceTree = "<group>"; };
+		299EBB271B272C2A0069DE26 /* DTError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTError.m; sourceTree = "<group>"; };
+		299EBB281B272C2A0069DE26 /* DTTimePeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriod.h; sourceTree = "<group>"; };
+		299EBB291B272C2A0069DE26 /* DTTimePeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriod.m; sourceTree = "<group>"; };
+		299EBB2A1B272C2A0069DE26 /* DTTimePeriodChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriodChain.h; sourceTree = "<group>"; };
+		299EBB2B1B272C2A0069DE26 /* DTTimePeriodChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodChain.m; sourceTree = "<group>"; };
+		299EBB2C1B272C2A0069DE26 /* DTTimePeriodCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriodCollection.h; sourceTree = "<group>"; };
+		299EBB2D1B272C2A0069DE26 /* DTTimePeriodCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodCollection.m; sourceTree = "<group>"; };
+		299EBB2E1B272C2A0069DE26 /* DTTimePeriodGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriodGroup.h; sourceTree = "<group>"; };
+		299EBB2F1B272C2A0069DE26 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodGroup.m; sourceTree = "<group>"; };
+		299EBB301B272C2A0069DE26 /* NSDate+DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateTools.h"; sourceTree = "<group>"; };
+		299EBB311B272C2A0069DE26 /* NSDate+DateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateTools.m"; sourceTree = "<group>"; };
+		299EBB3C1B281A110069DE26 /* ScrollWithVideoFragments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollWithVideoFragments.h; sourceTree = "<group>"; };
+		299EBB3D1B281A110069DE26 /* ScrollWithVideoFragments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollWithVideoFragments.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		299EBAE31B270B460069DE26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		299EBAFC1B270B460069DE26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		29645BF61B5CCF7D00BB2DD7 /* PopTip */ = {
+			isa = PBXGroup;
+			children = (
+				29645BF71B5CCF7D00BB2DD7 /* AMPopTip+Animation.h */,
+				29645BF81B5CCF7D00BB2DD7 /* AMPopTip+Animation.m */,
+				29645BF91B5CCF7D00BB2DD7 /* AMPopTip+Draw.h */,
+				29645BFA1B5CCF7D00BB2DD7 /* AMPopTip+Draw.m */,
+				29645BFB1B5CCF7D00BB2DD7 /* AMPopTip+Entrance.h */,
+				29645BFC1B5CCF7D00BB2DD7 /* AMPopTip+Entrance.m */,
+				29645BFD1B5CCF7D00BB2DD7 /* AMPopTip.h */,
+				29645BFE1B5CCF7D00BB2DD7 /* AMPopTip.m */,
+				29645BFF1B5CCF7D00BB2DD7 /* AMPopTipDefaults.h */,
+			);
+			path = PopTip;
+			sourceTree = "<group>";
+		};
+		299EBADD1B270B460069DE26 = {
+			isa = PBXGroup;
+			children = (
+				299EBAE81B270B460069DE26 /* TimeScrubber */,
+				299EBB021B270B460069DE26 /* TimeScrubberTests */,
+				299EBAE71B270B460069DE26 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		299EBAE71B270B460069DE26 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				299EBAE61B270B460069DE26 /* TimeScrubber.app */,
+				299EBAFF1B270B460069DE26 /* TimeScrubberTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		299EBAE81B270B460069DE26 /* TimeScrubber */ = {
+			isa = PBXGroup;
+			children = (
+				29645C041B5CCF9300BB2DD7 /* GlobalDefines.h */,
+				29645BF61B5CCF7D00BB2DD7 /* PopTip */,
+				299EBB221B272C2A0069DE26 /* DateTools */,
+				299EBB0F1B270BBF0069DE26 /* TimeScrubber.h */,
+				299EBB101B270BBF0069DE26 /* TimeScrubber.m */,
+				299EBB1C1B270E7D0069DE26 /* UI */,
+				299EBAED1B270B460069DE26 /* AppDelegate.h */,
+				299EBAEE1B270B460069DE26 /* AppDelegate.m */,
+				299EBAF01B270B460069DE26 /* ViewController.h */,
+				299EBAF11B270B460069DE26 /* ViewController.m */,
+				299EBAF31B270B460069DE26 /* Main.storyboard */,
+				299EBAF61B270B460069DE26 /* Images.xcassets */,
+				299EBAF81B270B460069DE26 /* LaunchScreen.xib */,
+				299EBAE91B270B460069DE26 /* Supporting Files */,
+			);
+			path = TimeScrubber;
+			sourceTree = "<group>";
+		};
+		299EBAE91B270B460069DE26 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				299EBAEA1B270B460069DE26 /* Info.plist */,
+				299EBAEB1B270B460069DE26 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		299EBB021B270B460069DE26 /* TimeScrubberTests */ = {
+			isa = PBXGroup;
+			children = (
+				299EBB051B270B460069DE26 /* TimeScrubberTests.m */,
+				299EBB031B270B460069DE26 /* Supporting Files */,
+			);
+			path = TimeScrubberTests;
+			sourceTree = "<group>";
+		};
+		299EBB031B270B460069DE26 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				299EBB041B270B460069DE26 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		299EBB1C1B270E7D0069DE26 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				299EBB131B270BBF0069DE26 /* TimeScrubberControl.h */,
+				299EBB141B270BBF0069DE26 /* TimeScrubberControl.m */,
+				299EBB111B270BBF0069DE26 /* TimeScrubberBorder.h */,
+				299EBB121B270BBF0069DE26 /* TimeScrubberBorder.m */,
+				299EBB151B270BBF0069DE26 /* TimeScrubberLabel.h */,
+				299EBB161B270BBF0069DE26 /* TimeScrubberLabel.m */,
+				299EBB1E1B2725E50069DE26 /* ScrollWithDates.h */,
+				299EBB1F1B2725E50069DE26 /* ScrollWithDates.m */,
+				299EBB3C1B281A110069DE26 /* ScrollWithVideoFragments.h */,
+				299EBB3D1B281A110069DE26 /* ScrollWithVideoFragments.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		299EBB221B272C2A0069DE26 /* DateTools */ = {
+			isa = PBXGroup;
+			children = (
+				299EBB231B272C2A0069DE26 /* DateTools.bundle */,
+				299EBB241B272C2A0069DE26 /* DateTools.h */,
+				299EBB251B272C2A0069DE26 /* DTConstants.h */,
+				299EBB261B272C2A0069DE26 /* DTError.h */,
+				299EBB271B272C2A0069DE26 /* DTError.m */,
+				299EBB281B272C2A0069DE26 /* DTTimePeriod.h */,
+				299EBB291B272C2A0069DE26 /* DTTimePeriod.m */,
+				299EBB2A1B272C2A0069DE26 /* DTTimePeriodChain.h */,
+				299EBB2B1B272C2A0069DE26 /* DTTimePeriodChain.m */,
+				299EBB2C1B272C2A0069DE26 /* DTTimePeriodCollection.h */,
+				299EBB2D1B272C2A0069DE26 /* DTTimePeriodCollection.m */,
+				299EBB2E1B272C2A0069DE26 /* DTTimePeriodGroup.h */,
+				299EBB2F1B272C2A0069DE26 /* DTTimePeriodGroup.m */,
+				299EBB301B272C2A0069DE26 /* NSDate+DateTools.h */,
+				299EBB311B272C2A0069DE26 /* NSDate+DateTools.m */,
+			);
+			path = DateTools;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		299EBAE51B270B460069DE26 /* TimeScrubber */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 299EBB091B270B460069DE26 /* Build configuration list for PBXNativeTarget "TimeScrubber" */;
+			buildPhases = (
+				299EBAE21B270B460069DE26 /* Sources */,
+				299EBAE31B270B460069DE26 /* Frameworks */,
+				299EBAE41B270B460069DE26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TimeScrubber;
+			productName = TimeScrubber;
+			productReference = 299EBAE61B270B460069DE26 /* TimeScrubber.app */;
+			productType = "com.apple.product-type.application";
+		};
+		299EBAFE1B270B460069DE26 /* TimeScrubberTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 299EBB0C1B270B460069DE26 /* Build configuration list for PBXNativeTarget "TimeScrubberTests" */;
+			buildPhases = (
+				299EBAFB1B270B460069DE26 /* Sources */,
+				299EBAFC1B270B460069DE26 /* Frameworks */,
+				299EBAFD1B270B460069DE26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				299EBB011B270B460069DE26 /* PBXTargetDependency */,
+			);
+			name = TimeScrubberTests;
+			productName = TimeScrubberTests;
+			productReference = 299EBAFF1B270B460069DE26 /* TimeScrubberTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		299EBADE1B270B460069DE26 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Vladyslav Semecnhenko";
+				TargetAttributes = {
+					299EBAE51B270B460069DE26 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					299EBAFE1B270B460069DE26 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 299EBAE51B270B460069DE26;
+					};
+				};
+			};
+			buildConfigurationList = 299EBAE11B270B460069DE26 /* Build configuration list for PBXProject "TimeScrubber" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 299EBADD1B270B460069DE26;
+			productRefGroup = 299EBAE71B270B460069DE26 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				299EBAE51B270B460069DE26 /* TimeScrubber */,
+				299EBAFE1B270B460069DE26 /* TimeScrubberTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		299EBAE41B270B460069DE26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				299EBAF51B270B460069DE26 /* Main.storyboard in Resources */,
+				299EBAFA1B270B460069DE26 /* LaunchScreen.xib in Resources */,
+				299EBAF71B270B460069DE26 /* Images.xcassets in Resources */,
+				299EBB321B272C2A0069DE26 /* DateTools.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		299EBAFD1B270B460069DE26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		299EBAE21B270B460069DE26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				299EBB201B2725E50069DE26 /* ScrollWithDates.m in Sources */,
+				299EBB361B272C2A0069DE26 /* DTTimePeriodCollection.m in Sources */,
+				299EBB181B270BBF0069DE26 /* TimeScrubberBorder.m in Sources */,
+				299EBB171B270BBF0069DE26 /* TimeScrubber.m in Sources */,
+				29645C001B5CCF7D00BB2DD7 /* AMPopTip+Animation.m in Sources */,
+				299EBB351B272C2A0069DE26 /* DTTimePeriodChain.m in Sources */,
+				29645C031B5CCF7D00BB2DD7 /* AMPopTip.m in Sources */,
+				299EBB371B272C2A0069DE26 /* DTTimePeriodGroup.m in Sources */,
+				299EBB331B272C2A0069DE26 /* DTError.m in Sources */,
+				299EBB3E1B281A110069DE26 /* ScrollWithVideoFragments.m in Sources */,
+				299EBAF21B270B460069DE26 /* ViewController.m in Sources */,
+				299EBB341B272C2A0069DE26 /* DTTimePeriod.m in Sources */,
+				299EBAEF1B270B460069DE26 /* AppDelegate.m in Sources */,
+				299EBB1A1B270BBF0069DE26 /* TimeScrubberLabel.m in Sources */,
+				299EBB191B270BBF0069DE26 /* TimeScrubberControl.m in Sources */,
+				299EBB381B272C2A0069DE26 /* NSDate+DateTools.m in Sources */,
+				299EBAEC1B270B460069DE26 /* main.m in Sources */,
+				29645C011B5CCF7D00BB2DD7 /* AMPopTip+Draw.m in Sources */,
+				29645C021B5CCF7D00BB2DD7 /* AMPopTip+Entrance.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		299EBAFB1B270B460069DE26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				299EBB061B270B460069DE26 /* TimeScrubberTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		299EBB011B270B460069DE26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 299EBAE51B270B460069DE26 /* TimeScrubber */;
+			targetProxy = 299EBB001B270B460069DE26 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		299EBAF31B270B460069DE26 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				299EBAF41B270B460069DE26 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		299EBAF81B270B460069DE26 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				299EBAF91B270B460069DE26 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		299EBB071B270B460069DE26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		299EBB081B270B460069DE26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		299EBB0A1B270B460069DE26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vladyslav Semenchenko (RN3E99U4SG)";
+				INFOPLIST_FILE = TimeScrubber/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ed85d954-c275-4526-8ae9-44fe09010773";
+			};
+			name = Debug;
+		};
+		299EBB0B1B270B460069DE26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vladyslav Semenchenko (RN3E99U4SG)";
+				INFOPLIST_FILE = TimeScrubber/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ed85d954-c275-4526-8ae9-44fe09010773";
+			};
+			name = Release;
+		};
+		299EBB0D1B270B460069DE26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TimeScrubberTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeScrubber.app/TimeScrubber";
+			};
+			name = Debug;
+		};
+		299EBB0E1B270B460069DE26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TimeScrubberTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeScrubber.app/TimeScrubber";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		299EBAE11B270B460069DE26 /* Build configuration list for PBXProject "TimeScrubber" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				299EBB071B270B460069DE26 /* Debug */,
+				299EBB081B270B460069DE26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		299EBB091B270B460069DE26 /* Build configuration list for PBXNativeTarget "TimeScrubber" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				299EBB0A1B270B460069DE26 /* Debug */,
+				299EBB0B1B270B460069DE26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		299EBB0C1B270B460069DE26 /* Build configuration list for PBXNativeTarget "TimeScrubberTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				299EBB0D1B270B460069DE26 /* Debug */,
+				299EBB0E1B270B460069DE26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 299EBADE1B270B460069DE26 /* Project object */;
+}
