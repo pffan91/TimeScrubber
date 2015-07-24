@@ -23,13 +23,6 @@
 		299EBB191B270BBF0069DE26 /* TimeScrubberControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB141B270BBF0069DE26 /* TimeScrubberControl.m */; };
 		299EBB1A1B270BBF0069DE26 /* TimeScrubberLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB161B270BBF0069DE26 /* TimeScrubberLabel.m */; };
 		299EBB201B2725E50069DE26 /* ScrollWithDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB1F1B2725E50069DE26 /* ScrollWithDates.m */; };
-		299EBB321B272C2A0069DE26 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 299EBB231B272C2A0069DE26 /* DateTools.bundle */; };
-		299EBB331B272C2A0069DE26 /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB271B272C2A0069DE26 /* DTError.m */; };
-		299EBB341B272C2A0069DE26 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB291B272C2A0069DE26 /* DTTimePeriod.m */; };
-		299EBB351B272C2A0069DE26 /* DTTimePeriodChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB2B1B272C2A0069DE26 /* DTTimePeriodChain.m */; };
-		299EBB361B272C2A0069DE26 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB2D1B272C2A0069DE26 /* DTTimePeriodCollection.m */; };
-		299EBB371B272C2A0069DE26 /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB2F1B272C2A0069DE26 /* DTTimePeriodGroup.m */; };
-		299EBB381B272C2A0069DE26 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB311B272C2A0069DE26 /* NSDate+DateTools.m */; };
 		299EBB3E1B281A110069DE26 /* ScrollWithVideoFragments.m in Sources */ = {isa = PBXBuildFile; fileRef = 299EBB3D1B281A110069DE26 /* ScrollWithVideoFragments.m */; };
 /* End PBXBuildFile section */
 
@@ -77,21 +70,6 @@
 		299EBB161B270BBF0069DE26 /* TimeScrubberLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeScrubberLabel.m; sourceTree = "<group>"; };
 		299EBB1E1B2725E50069DE26 /* ScrollWithDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollWithDates.h; sourceTree = "<group>"; };
 		299EBB1F1B2725E50069DE26 /* ScrollWithDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollWithDates.m; sourceTree = "<group>"; };
-		299EBB231B272C2A0069DE26 /* DateTools.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DateTools.bundle; sourceTree = "<group>"; };
-		299EBB241B272C2A0069DE26 /* DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTools.h; sourceTree = "<group>"; };
-		299EBB251B272C2A0069DE26 /* DTConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTConstants.h; sourceTree = "<group>"; };
-		299EBB261B272C2A0069DE26 /* DTError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTError.h; sourceTree = "<group>"; };
-		299EBB271B272C2A0069DE26 /* DTError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTError.m; sourceTree = "<group>"; };
-		299EBB281B272C2A0069DE26 /* DTTimePeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriod.h; sourceTree = "<group>"; };
-		299EBB291B272C2A0069DE26 /* DTTimePeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriod.m; sourceTree = "<group>"; };
-		299EBB2A1B272C2A0069DE26 /* DTTimePeriodChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriodChain.h; sourceTree = "<group>"; };
-		299EBB2B1B272C2A0069DE26 /* DTTimePeriodChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodChain.m; sourceTree = "<group>"; };
-		299EBB2C1B272C2A0069DE26 /* DTTimePeriodCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriodCollection.h; sourceTree = "<group>"; };
-		299EBB2D1B272C2A0069DE26 /* DTTimePeriodCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodCollection.m; sourceTree = "<group>"; };
-		299EBB2E1B272C2A0069DE26 /* DTTimePeriodGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTimePeriodGroup.h; sourceTree = "<group>"; };
-		299EBB2F1B272C2A0069DE26 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodGroup.m; sourceTree = "<group>"; };
-		299EBB301B272C2A0069DE26 /* NSDate+DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateTools.h"; sourceTree = "<group>"; };
-		299EBB311B272C2A0069DE26 /* NSDate+DateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateTools.m"; sourceTree = "<group>"; };
 		299EBB3C1B281A110069DE26 /* ScrollWithVideoFragments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollWithVideoFragments.h; sourceTree = "<group>"; };
 		299EBB3D1B281A110069DE26 /* ScrollWithVideoFragments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollWithVideoFragments.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,7 +131,6 @@
 			children = (
 				29645C041B5CCF9300BB2DD7 /* GlobalDefines.h */,
 				29645BF61B5CCF7D00BB2DD7 /* PopTip */,
-				299EBB221B272C2A0069DE26 /* DateTools */,
 				299EBB0F1B270BBF0069DE26 /* TimeScrubber.h */,
 				299EBB101B270BBF0069DE26 /* TimeScrubber.m */,
 				299EBB1C1B270E7D0069DE26 /* UI */,
@@ -210,28 +187,6 @@
 				299EBB3D1B281A110069DE26 /* ScrollWithVideoFragments.m */,
 			);
 			name = UI;
-			sourceTree = "<group>";
-		};
-		299EBB221B272C2A0069DE26 /* DateTools */ = {
-			isa = PBXGroup;
-			children = (
-				299EBB231B272C2A0069DE26 /* DateTools.bundle */,
-				299EBB241B272C2A0069DE26 /* DateTools.h */,
-				299EBB251B272C2A0069DE26 /* DTConstants.h */,
-				299EBB261B272C2A0069DE26 /* DTError.h */,
-				299EBB271B272C2A0069DE26 /* DTError.m */,
-				299EBB281B272C2A0069DE26 /* DTTimePeriod.h */,
-				299EBB291B272C2A0069DE26 /* DTTimePeriod.m */,
-				299EBB2A1B272C2A0069DE26 /* DTTimePeriodChain.h */,
-				299EBB2B1B272C2A0069DE26 /* DTTimePeriodChain.m */,
-				299EBB2C1B272C2A0069DE26 /* DTTimePeriodCollection.h */,
-				299EBB2D1B272C2A0069DE26 /* DTTimePeriodCollection.m */,
-				299EBB2E1B272C2A0069DE26 /* DTTimePeriodGroup.h */,
-				299EBB2F1B272C2A0069DE26 /* DTTimePeriodGroup.m */,
-				299EBB301B272C2A0069DE26 /* NSDate+DateTools.h */,
-				299EBB311B272C2A0069DE26 /* NSDate+DateTools.m */,
-			);
-			path = DateTools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,7 +272,6 @@
 				299EBAF51B270B460069DE26 /* Main.storyboard in Resources */,
 				299EBAFA1B270B460069DE26 /* LaunchScreen.xib in Resources */,
 				299EBAF71B270B460069DE26 /* Images.xcassets in Resources */,
-				299EBB321B272C2A0069DE26 /* DateTools.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,21 +290,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				299EBB201B2725E50069DE26 /* ScrollWithDates.m in Sources */,
-				299EBB361B272C2A0069DE26 /* DTTimePeriodCollection.m in Sources */,
 				299EBB181B270BBF0069DE26 /* TimeScrubberBorder.m in Sources */,
 				299EBB171B270BBF0069DE26 /* TimeScrubber.m in Sources */,
 				29645C001B5CCF7D00BB2DD7 /* AMPopTip+Animation.m in Sources */,
-				299EBB351B272C2A0069DE26 /* DTTimePeriodChain.m in Sources */,
 				29645C031B5CCF7D00BB2DD7 /* AMPopTip.m in Sources */,
-				299EBB371B272C2A0069DE26 /* DTTimePeriodGroup.m in Sources */,
-				299EBB331B272C2A0069DE26 /* DTError.m in Sources */,
 				299EBB3E1B281A110069DE26 /* ScrollWithVideoFragments.m in Sources */,
 				299EBAF21B270B460069DE26 /* ViewController.m in Sources */,
-				299EBB341B272C2A0069DE26 /* DTTimePeriod.m in Sources */,
 				299EBAEF1B270B460069DE26 /* AppDelegate.m in Sources */,
 				299EBB1A1B270BBF0069DE26 /* TimeScrubberLabel.m in Sources */,
 				299EBB191B270BBF0069DE26 /* TimeScrubberControl.m in Sources */,
-				299EBB381B272C2A0069DE26 /* NSDate+DateTools.m in Sources */,
 				299EBAEC1B270B460069DE26 /* main.m in Sources */,
 				29645C011B5CCF7D00BB2DD7 /* AMPopTip+Draw.m in Sources */,
 				29645C021B5CCF7D00BB2DD7 /* AMPopTip+Entrance.m in Sources */,

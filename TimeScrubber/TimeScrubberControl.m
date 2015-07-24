@@ -17,30 +17,24 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+    if (self)
+    {
         self.backgroundColor = [UIColor clearColor];
         
         selfHeight = frame.size.height;
         selfWidth = frame.size.width;
-        
-//        [self drawCanvas1WithFrame:frame];
     }
     
     return self;
 }
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
 
-    //// Color Declarations
     UIColor* color = self.outerColor;
     UIColor* color2 = self.innerColor;
     
-    //// Shadow Declarations
     UIColor* shadow = UIColor.blackColor;
     CGSize shadowOffset = CGSizeMake(0.1, -0.1);
     CGFloat shadowBlurRadius = 2;
@@ -79,6 +73,7 @@
         
         CGContextEndTransparencyLayer(context);
     }
+    
     CGContextEndTransparencyLayer(context);
     CGContextRestoreGState(context);
 }

@@ -10,13 +10,12 @@
 
 @interface ScrollWithDates : UIView
 
-@property (nonatomic) int period;
 @property (nonatomic) NSDate *startDateInitial;
 @property (nonatomic) NSDate *endDateInitial;
 
-- (id)initWithFrame:(CGRect)frame period:(int)period startDate:(NSDate *)startDate endDate:(NSDate *)endDate;
+- (id)initWithFrame:(CGRect)frame startDate:(NSDate *)startDate endDate:(NSDate *)endDate segments:(int)segmentsI oneSegmentTime:(float)oneSegmentTimeI;
 
-- (void)updateWithPeriod:(int)period startDate:(NSDate *)startDate endDate:(NSDate *)endDate isNeedHours:(BOOL)isNeedHours;
+- (void)updateWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate  segments:(int)segmentsI isNeedHours:(BOOL)isNeedHours;
 
 - (void)updateWithOffset:(float)offset;
 

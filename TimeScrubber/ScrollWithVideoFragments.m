@@ -9,8 +9,6 @@
 #import "ScrollWithVideoFragments.h"
 #import "GlobalDefines.h"
 
-#define kSections 12
-
 @interface ScrollWithVideoFragments ()
 {
     NSMutableArray *mArrayWithDates;
@@ -24,7 +22,7 @@
 
 @implementation ScrollWithVideoFragments
 
-- (id)initWithFrame:(CGRect)frame period:(int)period startDate:(NSDate *)startDate endDate:(NSDate *)endDate
+- (id)initWithFrame:(CGRect)frame startDate:(NSDate *)startDate endDate:(NSDate *)endDate
 {
     self = [super initWithFrame:frame];
     
@@ -33,7 +31,6 @@
         mArrayWithDates = [NSMutableArray array];
         mArrayWithViews = [NSMutableArray array];
         
-        self.period = period;
         self.startDateInitial = startDate;
         self.endDateInitial = endDate;
         
@@ -44,7 +41,7 @@
     return self;
 }
 
-- (void)updateWithPeriod:(int)period startDate:(NSDate *)startDate endDate:(NSDate *)endDate  andDelta:(NSTimeInterval)delta
+- (void)updateWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate andDelta:(NSTimeInterval)delta
 {
     for (UIView *view in mArrayWithViews)
     {
@@ -61,7 +58,6 @@
     [mArrayWithDates removeAllObjects];
     [mArrayWithViews removeAllObjects];
     
-    self.period = period;
     self.startDateInitial = startDate;
     self.endDateInitial = endDate;
     
@@ -101,6 +97,7 @@
     }
 }
 
+// not used
 - (void)createSubviewsWithVideoFragments:(NSMutableArray *)videoFragments cleanup:(BOOL)cleanup
 {
     
@@ -108,9 +105,12 @@
 
 - (void)updateWithOffset:(float)offset
 {
+    NSTimeInterval dateDifference = self.endDateInitial.timeIntervalSinceNow - self.startDateInitial.timeIntervalSinceNow + 2; // 2 - correction
+    float datePerPixel = self.bounds.size.width / dateDifference;
+    
     for (UIView *view in mArrayWithViews)
     {
-        view.center = CGPointMake(view.center.x -offset, view.center.y);
+        view.center = CGPointMake(view.center.x - datePerPixel, view.center.y);
     }
 }
 

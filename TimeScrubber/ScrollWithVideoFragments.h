@@ -10,17 +10,16 @@
 
 @interface ScrollWithVideoFragments : UIView
 
-@property (nonatomic) int period;
 @property (nonatomic) NSDate *startDateInitial;
 @property (nonatomic) NSDate *endDateInitial;
 
-- (id)initWithFrame:(CGRect)frame period:(int)period startDate:(NSDate *)startDate endDate:(NSDate *)endDate;
+- (id)initWithFrame:(CGRect)frame startDate:(NSDate *)startDate endDate:(NSDate *)endDate;
 
-- (void)updateWithPeriod:(int)period startDate:(NSDate *)startDate endDate:(NSDate *)endDate andDelta:(NSTimeInterval)delta;
+- (void)updateWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate andDelta:(NSTimeInterval)delta;
 
 - (void)updateWithOffset:(float)offset;
 
 - (void)createSubviewsWithVideoFragments:(NSMutableArray *)videoFragments;
-- (void)createSubviewsWithVideoFragments:(NSMutableArray *)videoFragments cleanup:(BOOL)cleanup;
+- (void)createSubviewsWithVideoFragments:(NSMutableArray *)videoFragments cleanup:(BOOL)cleanup; // not used
 
 @end
