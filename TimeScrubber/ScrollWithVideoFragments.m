@@ -11,7 +11,6 @@
 
 @interface ScrollWithVideoFragments ()
 {
-    NSMutableArray *mArrayWithDates;
     NSMutableArray *mArrayWithViews;
     
     float timeDelta;
@@ -28,7 +27,6 @@
     
     if (self)
     {
-        mArrayWithDates = [NSMutableArray array];
         mArrayWithViews = [NSMutableArray array];
         
         self.startDateInitial = startDate;
@@ -55,7 +53,6 @@
         }];
     }
     
-    [mArrayWithDates removeAllObjects];
     [mArrayWithViews removeAllObjects];
     
     self.startDateInitial = startDate;

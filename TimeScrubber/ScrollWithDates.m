@@ -72,8 +72,8 @@
     segments = segmentsI;
     isNeedHoursL = isNeedHours;
     self.endDateInitial = endDate;
-//    timeDelta = endDate.timeIntervalSinceNow - startDate.timeIntervalSinceNow;
-
+    self.startDateInitial = startDate;
+    
     [self generateStartDates];
 }
 

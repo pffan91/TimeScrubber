@@ -57,7 +57,6 @@
     
     if (self)
     {
-        // Initialization code
         self.backgroundColor = [UIColor clearColor];
         selfHeight = frame.size.height;
         selfWidth = frame.size.width;
@@ -328,7 +327,7 @@
         [scrollWithDate updateWithOffset:0.25 * datePerPixel];
         [scrollWithVideo updateWithOffset:creationDate.timeIntervalSinceNow];
         
-        if ((int)previousCreatedDate.timeIntervalSinceNow == -oneSegmentTime || (int)previousCreatedDate.timeIntervalSinceNow == -(oneSegmentTime + 1))
+        if ((int)previousCreatedDate.timeIntervalSinceNow == -oneSegmentTime || (int)previousCreatedDate.timeIntervalSinceNow == -(oneSegmentTime + 1) || (int)previousCreatedDate.timeIntervalSinceNow == -(oneSegmentTime - 1))
         {
             previousCreatedDate = [NSDate date];
             [scrollWithDate createNewViewWithDate:previousCreatedDate];
@@ -402,10 +401,6 @@
     [scrollWithVideo createSubviewsWithVideoFragments:self.mArrayWithVideoFragments];
     [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:NO];
     
-    [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:NO];
-    [scrollWithVideo createSubviewsWithVideoFragments:self.mArrayWithVideoFragments];
-    scrollWithVideo = [[ScrollWithVideoFragments alloc] initWithFrame:CGRectMake(2.5, 0, self.bounds.size.width - 5, self.bounds.size.height) startDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial];
-    
     // update time / hide marker
     [self updateStaticMarker];
     [self update];
@@ -420,17 +415,15 @@
 -(void)handleLongPressFinished
 {
     self.endDateInitial = [NSDate date];
-        previousCreatedDate = [NSDate dateWithTimeInterval:-oneSegmentTime sinceDate:self.endDateInitial];
+    previousCreatedDate = [NSDate dateWithTimeInterval:-oneSegmentTime sinceDate:self.endDateInitial];
     
-    NSDate *startDate = [NSDate dateWithTimeInterval:-masterTimeDifference sinceDate:self.endDateInitial];
-    
-    self.startDateIntervalInitial = startDate.timeIntervalSinceNow;
-    self.endDateIntervalInitial = self.endDateInitial.timeIntervalSinceNow;
+    self.startDateIntervalInitial = -masterTimeDifference;
+    self.endDateIntervalInitial = 0;
     
     // update scroll and labels
+    [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:YES];
     [scrollWithVideo updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial andDelta:creationDate.timeIntervalSinceNow];
     [scrollWithVideo createSubviewsWithVideoFragments:self.mArrayWithVideoFragments];
-    [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:YES];
     
     // update time / move marker
     [self updateMarker];
