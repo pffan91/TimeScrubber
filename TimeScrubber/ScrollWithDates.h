@@ -12,10 +12,11 @@
 
 @property (nonatomic) NSDate *startDateInitial;
 @property (nonatomic) NSDate *endDateInitial;
+@property (nonatomic) int coefficient;
 
-- (id)initWithFrame:(CGRect)frame startDate:(NSDate *)startDate endDate:(NSDate *)endDate segments:(int)segmentsI oneSegmentTime:(float)oneSegmentTimeI;
+- (id)initWithFrame:(CGRect)frame startDate:(NSDate *)startDate endDate:(NSDate *)endDate segments:(int)segmentsI oneSegmentTime:(float)oneSegmentTimeI coefficient:(int)coef;
 
-- (void)updateWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate  segments:(int)segmentsI isNeedHours:(BOOL)isNeedHours;
+- (void)updateWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate  segments:(int)segmentsI isNeedHours:(BOOL)isNeedHours coefficient:(int)coef;;
 
 - (void)updateWithOffset:(float)offset;
 

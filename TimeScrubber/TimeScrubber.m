@@ -48,6 +48,8 @@
     int segments;
     float oneSegmentTime;
     int masterTimeDifference;
+    
+    int period;
 }
 
 #pragma mark Init
@@ -68,6 +70,9 @@
         _value = 24.0;
         segments = segmentsI;
         masterTimeDifference = fabs(round(endDate.timeIntervalSinceNow - startDate.timeIntervalSinceNow));
+        
+        period = masterTimeDifference / 3600;
+        
         self.endDateInitial = endDate;
         creationDate = self.endDateInitial;
         oneSegmentTime = masterTimeDifference / segments;
@@ -81,7 +86,22 @@
         self.startDateIntervalInitial = -masterTimeDifference;
         self.endDateIntervalInitial = 0;
         
-        scrollWithDate = [[ScrollWithDates alloc] initWithFrame:self.bounds startDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments oneSegmentTime:oneSegmentTime];
+        int coef = 0;
+        
+        if (segments / period < 1.5) // by 1 hour
+        {
+            coef = 0;
+        }
+        else if (segments / period < 2.5) // by 30 mins
+        {
+            coef = 1;
+        }
+        else if (segments / period > 2.5) // by 15 mins
+        {
+            coef = 2;
+        }
+        
+        scrollWithDate = [[ScrollWithDates alloc] initWithFrame:self.bounds startDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments oneSegmentTime:oneSegmentTime coefficient:coef];
         scrollWithDate.userInteractionEnabled = NO;
         [self addSubview:scrollWithDate];
         
@@ -399,7 +419,23 @@
     // update scroll and labels
     [scrollWithVideo updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial andDelta:creationDate.timeIntervalSinceNow];
     [scrollWithVideo createSubviewsWithVideoFragments:self.mArrayWithVideoFragments];
-    [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:NO];
+    
+    int coef = 0;
+    
+    if (segments / period < 1.5) // by 1 hour
+    {
+        coef = 0;
+    }
+    else if (segments / period < 2.5) // by 30 mins
+    {
+        coef = 1;
+    }
+    else if (segments / period > 2.5) // by 15 mins
+    {
+        coef = 2;
+    }
+    
+    [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:NO coefficient:coef];
     
     // update time / hide marker
     [self updateStaticMarker];
@@ -421,7 +457,22 @@
     self.endDateIntervalInitial = 0;
     
     // update scroll and labels
-    [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:YES];
+    int coef = 0;
+    
+    if (segments / period < 1.5) // by 1 hour
+    {
+        coef = 0;
+    }
+    else if (segments / period < 2.5) // by 30 mins
+    {
+        coef = 1;
+    }
+    else if (segments / period > 2.5) // by 15 mins
+    {
+        coef = 2;
+    }
+    
+    [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:YES coefficient:coef];
     [scrollWithVideo updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial andDelta:creationDate.timeIntervalSinceNow];
     [scrollWithVideo createSubviewsWithVideoFragments:self.mArrayWithVideoFragments];
     
