@@ -49,9 +49,7 @@
         self.coefficient = coef;
         oneSegmentTime = oneSegmentTimeI;
         timeDelta = endDate.timeIntervalSinceNow - startDate.timeIntervalSinceNow;
-
         correctedSegments = (timeDelta) / oneSegmentTime;
-        
         count = 0;
         
         [self generateStartDates];
@@ -85,7 +83,6 @@
     self.startDateInitial = startDate;
     self.coefficient = coef;
     timeDelta = endDate.timeIntervalSinceNow - startDate.timeIntervalSinceNow;
-    
     correctedSegments = timeDelta / oneSegmentTime;
 
     [self generateStartDates];
@@ -232,15 +229,6 @@
             [mArrayWithViews addObject:masterView];
         }
     }
-    
-//    if (oneSegmentTime > 3500)
-//    {
-//        [self createNewViewWithDate:[NSDate date] isNeedMinutes:NO];
-//    }
-//    else
-//    {
-//        [self createNewViewWithDate:[NSDate date] isNeedMinutes:YES];
-//    }
 }
 
 - (void)createNewViewWithDate:(NSDate *)date isNeedMinutes:(BOOL)isNeedMinutes
@@ -260,8 +248,6 @@
         {
             float deltaForDate = 0;
             
-//            NSDate *tempDate = [NSDate dateWithTimeInterval:(self.endDateInitial.timeIntervalSinceNow - oneSegmentTime) sinceDate:self.endDateInitial];
-            
             NSString *tempString = [dateFormatters2 stringFromDate:date];
             deltaForDate = 60 * [tempString intValue];
             count = deltaForDate;
@@ -275,8 +261,6 @@
         else if (self.coefficient == 1)
         {
             float deltaForDate = 0;
-            
-//            NSDate *tempDate = [NSDate dateWithTimeInterval:(self.endDateInitial.timeIntervalSinceNow - oneSegmentTime) sinceDate:self.endDateInitial];
             
             NSString *tempString = [dateFormatters2 stringFromDate:date];
             // get difference 30 mins
@@ -353,9 +337,7 @@
 - (void)updateWithOffset:(float)offset
 {
     count++;
-    
-//    NSLog(@"Count = %d", count);
-    
+        
     if (count == oneSegmentTime)
     {
         if (oneSegmentTime > 3500)

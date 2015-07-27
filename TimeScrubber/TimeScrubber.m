@@ -38,9 +38,6 @@
     
     AMPopTip *popTip;
     
-    NSTimeInterval currentPressedDateInterval;
-    NSTimeInterval currentTimeInterval;
-    
     NSDate *creationDate;
     
     int segments;
@@ -393,19 +390,29 @@
 -(void)handleLongPress
 {
     isLongPressedFired = YES;
-    currentTimeInterval = [NSDate date].timeIntervalSinceNow;
     
     // stop date update
     [self updateEnable:NO];
     
     // update start end date based on current selected date
     float testDevider = oneSegmentTime / 2;
-    currentPressedDateInterval = self.currentDateInterval;
-    NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:self.currentDateInterval];
     
-    self.endDateInitial = [[NSDate alloc] initWithTimeInterval:testDevider sinceDate:currentDate];
-    
-    NSDate *startDate = [NSDate dateWithTimeInterval:-testDevider sinceDate:currentDate];
+    NSDate *currentDate;
+    NSDate *startDate;
+        
+    if (fabs(self.currentDateInterval) < oneSegmentTime)
+    {
+        currentDate = [NSDate dateWithTimeInterval:-testDevider sinceDate:[NSDate date]];
+        self.endDateInitial = [NSDate date];
+        startDate = [NSDate dateWithTimeInterval:-testDevider sinceDate:currentDate];
+
+    }
+    else
+    {
+        currentDate = [NSDate dateWithTimeIntervalSinceNow:self.currentDateInterval];
+        self.endDateInitial = [[NSDate alloc] initWithTimeInterval:testDevider sinceDate:currentDate];
+        startDate = [NSDate dateWithTimeInterval:-testDevider sinceDate:currentDate];
+    }
     
     self.startDateIntervalInitial = startDate.timeIntervalSinceNow;
     self.endDateIntervalInitial = self.endDateInitial.timeIntervalSinceNow;

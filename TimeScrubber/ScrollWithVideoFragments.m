@@ -120,7 +120,6 @@
     if (CGRectContainsPoint(trackingFrame, p))
     {
         [UIView animateWithDuration:1.0 animations:^{
-            //
             view.alpha = 0.0;
         } completion:^(BOOL finished) {
             if (!finished)

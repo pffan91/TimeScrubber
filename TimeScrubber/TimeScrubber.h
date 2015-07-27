@@ -20,9 +20,6 @@
 // the maximum value of the knob. Defaults to 24.
 @property (nonatomic, assign) float maximumValue;
 
-// time stamp - 1 = 24h, 2 - 48h, 3 - 72m, 4 - custom
-//@property (nonatomic, assign) int period;
-
 // dates
 @property (nonatomic) NSTimeInterval endDateIntervalInitial;
 @property (nonatomic) NSTimeInterval startDateIntervalInitial;
@@ -41,6 +38,7 @@
 // get real data (needed for server)
 - (NSTimeInterval)getRealCurrentDate;
 
+// update enable
 - (void)updateEnable:(BOOL)isEnabled;
 
 @end
