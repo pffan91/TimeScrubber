@@ -17,13 +17,14 @@
     NSMutableArray *mArrayWithViews;
     NSMutableArray *mArrayWithOffset;
     NSMutableArray *mArrayWithFinalDatesStrings;
-
-    NSDate *fixedDate;
     
     int segments;
     float oneSegmentTime;
     BOOL isNeedHoursL;
-    float timeDelta;
+    int timeDelta;
+    int correctedSegments;
+    
+    int count;
 }
 
 @end
@@ -47,8 +48,11 @@
         self.startDateInitial = startDate;
         self.coefficient = coef;
         oneSegmentTime = oneSegmentTimeI;
+        timeDelta = endDate.timeIntervalSinceNow - startDate.timeIntervalSinceNow;
+
+        correctedSegments = (timeDelta) / oneSegmentTime;
         
-        fixedDate = [NSDate dateWithTimeInterval:-oneSegmentTime sinceDate:self.endDateInitial];
+        count = 0;
         
         [self generateStartDates];
     }
@@ -56,7 +60,7 @@
     return self;
 }
 
-- (void)updateWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate  segments:(int)segmentsI isNeedHours:(BOOL)isNeedHours coefficient:(int)coef
+- (void)updateWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate segments:(int)segmentsI isNeedHours:(BOOL)isNeedHours coefficient:(int)coef
 {
     for (UIView *view in mArrayWithViews)
     {
@@ -82,6 +86,8 @@
     self.coefficient = coef;
     timeDelta = endDate.timeIntervalSinceNow - startDate.timeIntervalSinceNow;
     
+    correctedSegments = timeDelta / oneSegmentTime;
+
     [self generateStartDates];
 }
 
@@ -92,7 +98,7 @@
 
     if (isNeedHoursL)
     {
-        for (int i = 1; i < segments; i++)
+        for (int i = 1; i <= correctedSegments; i++)
         {
             if (self.coefficient == 0) // by hours
             {
@@ -184,20 +190,20 @@
 
     if (isNeedHoursL)
     {
-        for (int i = 1; i < segments; i++)
+        for (int i = 1; i <= correctedSegments; i++)
         {
-            float deltaForDate = [[mArrayWithOffset objectAtIndex:segments-i-1] floatValue];
+            float deltaForDate = [[mArrayWithOffset objectAtIndex:correctedSegments-i] floatValue];
             
-            UIView *masterView = [[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width / segments) * i - deltaForDate, self.frame.origin.y, 40, self.bounds.size.height)];
+            UIView *masterView = [[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width / (correctedSegments+1)) * i - deltaForDate, self.frame.origin.y, 40, self.bounds.size.height)];
             TimeScrubberBorder *border = [[TimeScrubberBorder alloc] initWithFrame:CGRectMake(0, 20, 2.5, self.frame.size.height / 2)];
             [masterView addSubview:border];
             TimeScrubberLabel *label = [[TimeScrubberLabel alloc] initWithFrame:CGRectMake(0 - 20, 40, 40, 20)];
-            label.text = [dateFormatters stringFromDate:[mArrayWithDates objectAtIndex:segments-i-1]];
+            label.text = [dateFormatters stringFromDate:[mArrayWithDates objectAtIndex:correctedSegments-i]];
             [masterView addSubview:label];
             
             NSDateFormatter *dateFormattersTest = [[NSDateFormatter alloc] init];
             [dateFormattersTest setDateFormat:@"HH"];
-            NSString *tempString = [dateFormattersTest stringFromDate:[mArrayWithDates objectAtIndex:segments-i-1]];
+            NSString *tempString = [dateFormattersTest stringFromDate:[mArrayWithDates objectAtIndex:correctedSegments-i]];
             
             [mArrayWithFinalDatesStrings addObject:tempString];
             [self addSubview:masterView];
@@ -226,24 +232,21 @@
             [mArrayWithViews addObject:masterView];
         }
     }
+    
+//    if (oneSegmentTime > 3500)
+//    {
+//        [self createNewViewWithDate:[NSDate date] isNeedMinutes:NO];
+//    }
+//    else
+//    {
+//        [self createNewViewWithDate:[NSDate date] isNeedMinutes:YES];
+//    }
 }
 
-- (void)createNewViewWithDate:(NSDate *)date;
+- (void)createNewViewWithDate:(NSDate *)date isNeedMinutes:(BOOL)isNeedMinutes
 {
-    NSString *lastDateString = [mArrayWithFinalDatesStrings lastObject];
-    
-    NSDateFormatter *dateFormattersTest = [[NSDateFormatter alloc] init];
-    [dateFormattersTest setDateFormat:@"HH"];
-    
-    NSString *tempString = [dateFormattersTest stringFromDate:date];
-    
-    if ([lastDateString isEqualToString:tempString] && isNeedHoursL)
-    {
-        return;
-    }
-    
-    float deltaForDate = 0;
     float finalValue = 0;
+    NSDate *finalDate;
     
     NSDateFormatter *dateFormatters = [[NSDateFormatter alloc] init];
     [dateFormatters setDateFormat:@"HH"];
@@ -253,13 +256,60 @@
         NSDateFormatter *dateFormatters2 = [[NSDateFormatter alloc] init];
         [dateFormatters2 setDateFormat:@"mm"];
         
-        NSString *tempString = [dateFormatters2 stringFromDate:self.endDateInitial];
-        
-        deltaForDate = 60 * [tempString intValue];
-        
-        float dateDifference = self.endDateInitial.timeIntervalSinceNow - self.startDateInitial.timeIntervalSinceNow;
-        float datePerPixel = self.bounds.size.width / dateDifference;
-        finalValue = datePerPixel * deltaForDate;
+        if (self.coefficient == 0) // by hours
+        {
+            float deltaForDate = 0;
+            
+//            NSDate *tempDate = [NSDate dateWithTimeInterval:(self.endDateInitial.timeIntervalSinceNow - oneSegmentTime) sinceDate:self.endDateInitial];
+            
+            NSString *tempString = [dateFormatters2 stringFromDate:date];
+            deltaForDate = 60 * [tempString intValue];
+            count = deltaForDate;
+            
+            float dateDifference = self.endDateInitial.timeIntervalSinceNow - self.startDateInitial.timeIntervalSinceNow;
+            float datePerPixel = self.bounds.size.width / dateDifference;
+            finalValue = datePerPixel * deltaForDate;
+            
+            finalDate = [NSDate dateWithTimeInterval:-deltaForDate sinceDate:date];
+        }
+        else if (self.coefficient == 1)
+        {
+            float deltaForDate = 0;
+            
+//            NSDate *tempDate = [NSDate dateWithTimeInterval:(self.endDateInitial.timeIntervalSinceNow - oneSegmentTime) sinceDate:self.endDateInitial];
+            
+            NSString *tempString = [dateFormatters2 stringFromDate:date];
+            // get difference 30 mins
+            int mins = [tempString intValue];
+            float diff = mins % 30;
+            
+            deltaForDate = 60 * diff;
+            count = deltaForDate;
+
+            float dateDifference = self.endDateInitial.timeIntervalSinceNow - self.startDateInitial.timeIntervalSinceNow;
+            float datePerPixel = self.bounds.size.width / dateDifference;
+            finalValue = datePerPixel * deltaForDate;
+            
+            finalDate = [NSDate dateWithTimeInterval:-deltaForDate sinceDate:date];
+        }
+        else if (self.coefficient == 2)
+        {
+            float deltaForDate = 0;
+                        
+            NSString *tempString = [dateFormatters2 stringFromDate:date];
+            // get difference 15 mins
+            int mins = [tempString intValue];
+            float diff = mins % 15;
+            
+            deltaForDate = 60 * diff;
+            count = deltaForDate;
+
+            float dateDifference = self.endDateInitial.timeIntervalSinceNow - self.startDateInitial.timeIntervalSinceNow;
+            float datePerPixel = self.bounds.size.width / dateDifference;
+            finalValue = datePerPixel * deltaForDate;
+            
+            finalDate = [NSDate dateWithTimeInterval:-deltaForDate sinceDate:date];
+        }
     }
 
     UIView *masterView = [[UIView alloc] initWithFrame:CGRectMake(self.frame.size.width - 2.5 - finalValue, self.frame.origin.y, 40, self.bounds.size.height)];
@@ -270,8 +320,16 @@
     
     if (isNeedHoursL)
     {
-        [dateFormatters setDateFormat:@"HH"];
-        label.text = [NSString stringWithFormat:@"%@:00",[dateFormatters stringFromDate:date]];
+        if (isNeedMinutes)
+        {
+            [dateFormatters setDateFormat:@"HH:mm"];
+            label.text = [dateFormatters stringFromDate:finalDate];
+        }
+        else
+        {
+            [dateFormatters setDateFormat:@"HH"];
+            label.text = [NSString stringWithFormat:@"%@:00",[dateFormatters stringFromDate:finalDate]];
+        }
     }
     else
     {
@@ -294,6 +352,22 @@
 
 - (void)updateWithOffset:(float)offset
 {
+    count++;
+    
+//    NSLog(@"Count = %d", count);
+    
+    if (count == oneSegmentTime)
+    {
+        if (oneSegmentTime > 3500)
+        {
+            [self createNewViewWithDate:[NSDate date] isNeedMinutes:NO];
+        }
+        else
+        {
+            [self createNewViewWithDate:[NSDate date] isNeedMinutes:YES];
+        }
+    }
+    
     NSTimeInterval dateDifference = self.endDateInitial.timeIntervalSinceNow - self.startDateInitial.timeIntervalSinceNow + 2; // 2 - correction
     float datePerPixel = self.bounds.size.width / dateDifference;
     

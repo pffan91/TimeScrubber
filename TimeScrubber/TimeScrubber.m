@@ -36,8 +36,6 @@
     ScrollWithDates *scrollWithDate;
     ScrollWithVideoFragments *scrollWithVideo;
     
-    NSDate *previousCreatedDate;
-    
     AMPopTip *popTip;
     
     NSTimeInterval currentPressedDateInterval;
@@ -49,7 +47,7 @@
     float oneSegmentTime;
     int masterTimeDifference;
     
-    int period;
+    int hoursInInSelectedInterval;
 }
 
 #pragma mark Init
@@ -71,12 +69,10 @@
         segments = segmentsI;
         masterTimeDifference = fabs(round(endDate.timeIntervalSinceNow - startDate.timeIntervalSinceNow));
         
-        period = masterTimeDifference / 3600;
+        hoursInInSelectedInterval = masterTimeDifference / 3600;
         
         self.endDateInitial = endDate;
         creationDate = self.endDateInitial;
-        oneSegmentTime = masterTimeDifference / segments;
-        previousCreatedDate = [NSDate dateWithTimeInterval:-oneSegmentTime sinceDate:self.endDateInitial];
         
         if (videoBlocks != nil)
         {
@@ -88,21 +84,26 @@
         
         int coef = 0;
         
-        if (segments / period < 1.5) // by 1 hour
+        if (segments / hoursInInSelectedInterval < 1.5) // by 1 hour
         {
             coef = 0;
+            oneSegmentTime = masterTimeDifference / segments;
         }
-        else if (segments / period < 2.5) // by 30 mins
+        else if (segments / hoursInInSelectedInterval < 2.5) // by 30 mins
         {
             coef = 1;
+            oneSegmentTime = 60 * 30;
         }
-        else if (segments / period > 2.5) // by 15 mins
+        else if (segments / hoursInInSelectedInterval > 2.5) // by 15 mins
         {
             coef = 2;
+            oneSegmentTime = 60 * 15;
         }
         
         scrollWithDate = [[ScrollWithDates alloc] initWithFrame:self.bounds startDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments oneSegmentTime:oneSegmentTime coefficient:coef];
         scrollWithDate.userInteractionEnabled = NO;
+        NSDate *tempDate = [NSDate dateWithTimeInterval:0 sinceDate:self.endDateInitial];
+        [scrollWithDate createNewViewWithDate:tempDate isNeedMinutes:YES];
         [self addSubview:scrollWithDate];
         
         scrollWithVideo = [[ScrollWithVideoFragments alloc] initWithFrame:CGRectMake(2.5, 0, self.bounds.size.width - 5, self.bounds.size.height) startDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial];
@@ -125,7 +126,7 @@
         self.thumbControlStatic.date = [NSDate date];
         self.thumbControl.date = [NSDate date];
         [self addSubview:self.thumbControl];
-        [self addSubview:self.thumbControlStatic];
+//        [self addSubview:self.thumbControlStatic];
         
         popTip = [AMPopTip popTip];
         popTip.popoverColor = [UIColor colorWithRed:0.263 green:0.501 blue:0.935 alpha:1.000];
@@ -346,12 +347,6 @@
         float datePerPixel = selfWidth / masterTimeDifference;
         [scrollWithDate updateWithOffset:0.25 * datePerPixel];
         [scrollWithVideo updateWithOffset:creationDate.timeIntervalSinceNow];
-        
-        if ((int)previousCreatedDate.timeIntervalSinceNow == -oneSegmentTime || (int)previousCreatedDate.timeIntervalSinceNow == -(oneSegmentTime + 1) || (int)previousCreatedDate.timeIntervalSinceNow == -(oneSegmentTime - 1))
-        {
-            previousCreatedDate = [NSDate date];
-            [scrollWithDate createNewViewWithDate:previousCreatedDate];
-        }
     }
 }
 
@@ -409,9 +404,8 @@
     NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:self.currentDateInterval];
     
     self.endDateInitial = [[NSDate alloc] initWithTimeInterval:testDevider sinceDate:currentDate];
-    previousCreatedDate = [NSDate dateWithTimeInterval:-oneSegmentTime / 2 sinceDate:self.endDateInitial];
     
-    NSDate *startDate = [NSDate dateWithTimeInterval:-oneSegmentTime sinceDate:self.endDateInitial];
+    NSDate *startDate = [NSDate dateWithTimeInterval:-testDevider sinceDate:currentDate];
     
     self.startDateIntervalInitial = startDate.timeIntervalSinceNow;
     self.endDateIntervalInitial = self.endDateInitial.timeIntervalSinceNow;
@@ -422,36 +416,36 @@
     
     int coef = 0;
     
-    if (segments / period < 1.5) // by 1 hour
+    if (segments / hoursInInSelectedInterval < 1.5) // by 1 hour
     {
         coef = 0;
+        oneSegmentTime = masterTimeDifference / segments;
     }
-    else if (segments / period < 2.5) // by 30 mins
+    else if (segments / hoursInInSelectedInterval < 2.5) // by 30 mins
     {
         coef = 1;
+        oneSegmentTime = 60 * 30;
     }
-    else if (segments / period > 2.5) // by 15 mins
+    else if (segments / hoursInInSelectedInterval > 2.5) // by 15 mins
     {
         coef = 2;
+        oneSegmentTime = 60 * 15;
     }
     
     [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:NO coefficient:coef];
+    
+    NSDate *tempDate = [NSDate dateWithTimeInterval:0 sinceDate:self.endDateInitial];
+    [scrollWithDate createNewViewWithDate:tempDate isNeedMinutes:YES];
     
     // update time / hide marker
     [self updateStaticMarker];
     [self update];
     [self updateEnable:NO];
-    
-    NSDate *tempDate = [NSDate dateWithTimeInterval:0 sinceDate:self.endDateInitial];
-    
-    [scrollWithDate createNewViewWithDate:tempDate];
-    previousCreatedDate = [NSDate dateWithTimeInterval:-secondsFromGMT sinceDate:self.endDateInitial];
 }
 
 -(void)handleLongPressFinished
 {
     self.endDateInitial = [NSDate date];
-    previousCreatedDate = [NSDate dateWithTimeInterval:-oneSegmentTime sinceDate:self.endDateInitial];
     
     self.startDateIntervalInitial = -masterTimeDifference;
     self.endDateIntervalInitial = 0;
@@ -459,17 +453,20 @@
     // update scroll and labels
     int coef = 0;
     
-    if (segments / period < 1.5) // by 1 hour
+    if (segments / hoursInInSelectedInterval < 1.5) // by 1 hour
     {
         coef = 0;
+        oneSegmentTime = masterTimeDifference / segments;
     }
-    else if (segments / period < 2.5) // by 30 mins
+    else if (segments / hoursInInSelectedInterval < 2.5) // by 30 mins
     {
         coef = 1;
+        oneSegmentTime = 60 * 30;
     }
-    else if (segments / period > 2.5) // by 15 mins
+    else if (segments / hoursInInSelectedInterval > 2.5) // by 15 mins
     {
         coef = 2;
+        oneSegmentTime = 60 * 15;
     }
     
     [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:YES coefficient:coef];
@@ -483,6 +480,9 @@
     [UIView animateWithDuration:0.1 animations:^{
         self.thumbControlStatic.hidden = NO;
     }];
+    
+    NSDate *tempDate = [NSDate dateWithTimeInterval:0 sinceDate:self.endDateInitial];
+    [scrollWithDate createNewViewWithDate:tempDate isNeedMinutes:YES];
     
     [self update];
     [self updateEnable:YES];

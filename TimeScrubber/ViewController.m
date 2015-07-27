@@ -79,7 +79,7 @@
     NSMutableArray *sampleArrayWithBlocks4 = [NSMutableArray arrayWithObjects:d7, d8, nil];
     
     endDate4 = [NSDate date];
-    startDate4 = [NSDate dateWithTimeInterval:-(3600 * 2) sinceDate:endDate4]; // custom 2h
+    startDate4 = [NSDate dateWithTimeInterval:-(3600 * 1) sinceDate:endDate4]; // custom 2h
     
     mTimeScrubber4 = [[TimeScrubber alloc] initWithFrame:CGRectMake(30, 500, self.view.bounds.size.width - 60, 50) withStartDate:startDate4 endDate:endDate4 segments:12 andVideoBlocks:sampleArrayWithBlocks4];
     [self.view addSubview:mTimeScrubber4];

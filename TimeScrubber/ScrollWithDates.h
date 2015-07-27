@@ -20,6 +20,6 @@
 
 - (void)updateWithOffset:(float)offset;
 
-- (void)createNewViewWithDate:(NSDate *)date;
+- (void)createNewViewWithDate:(NSDate *)date isNeedMinutes:(BOOL)isNeedMinutes;
 
 @end
