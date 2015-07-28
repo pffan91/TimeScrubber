@@ -58,22 +58,19 @@
     return self;
 }
 
-- (void)updateWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate segments:(int)segmentsI isNeedHours:(BOOL)isNeedHours coefficient:(int)coef
+- (void)updateWithStartDate:(NSDate *)startDate endDate:(NSDate *)endDate segments:(int)segmentsI isNeedHours:(BOOL)isNeedHours coefficient:(int)coef animateDirection:(int)direction selectedPoint:(CGPoint)selectedPoint
 {
-    for (UIView *view in mArrayWithViews)
+    if (direction == 1) // zoom out
     {
-        [UIView animateWithDuration:0.3 animations:^{
-            view.alpha = 0.0;
-        } completion:^(BOOL finished) {
-            if (finished)
-            {
-                [view removeFromSuperview];
-            }
-        }];
+        [self zoomOutAnimationWithPoint:selectedPoint];
+    }
+    else // zoom in
+    {
+        [self zoomInAnimationWithPoint:selectedPoint];
     }
     
     [mArrayWithDates removeAllObjects];
-    [mArrayWithViews removeAllObjects];
+//    [mArrayWithViews removeAllObjects];
     [mArrayWithOffset removeAllObjects];
     [mArrayWithFinalDatesStrings removeAllObjects];
     
@@ -377,6 +374,50 @@
             }
         }];
     }
+}
+
+- (void)zoomOutAnimationWithPoint:(CGPoint)selectedPoint
+{
+    for (UIView *view in mArrayWithViews)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            if (view.center.x > selectedPoint.x)
+            {
+                view.center = CGPointMake(self.bounds.size.width, view.center.y);
+                view.alpha = 0.0;
+            }
+            else
+            {
+                view.center = CGPointMake(0, view.center.y);
+                view.alpha = 0.0;
+            }
+        } completion:^(BOOL finished) {
+            if (finished)
+            {
+                [view removeFromSuperview];
+            }
+        }];
+    }
+    
+    [mArrayWithViews removeAllObjects];
+}
+
+- (void)zoomInAnimationWithPoint:(CGPoint)selectedPoint
+{
+    for (UIView *view in mArrayWithViews)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            view.center = CGPointMake(self.bounds.size.width * 0.5, view.center.y);
+            view.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            if (finished)
+            {
+                [view removeFromSuperview];
+            }
+        }];
+    }
+    
+    [mArrayWithViews removeAllObjects];
 }
 
 @end

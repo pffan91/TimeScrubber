@@ -45,6 +45,8 @@
     int masterTimeDifference;
     
     int hoursInInSelectedInterval;
+    
+    CGPoint currentPoint;
 }
 
 #pragma mark Init
@@ -152,7 +154,7 @@
     longPressTimer = [NSTimer scheduledTimerWithTimeInterval:kUpdateTimerInterval target:self selector:@selector(handleLongPress) userInfo:nil repeats:NO];
     
     CGPoint l = [touch locationInView:self];
-    
+    currentPoint = l;
     if ([self markerHitTest:l])
     {
         [self moveRedControl:l];
@@ -175,6 +177,7 @@
     [longPressTimer invalidate];
     
     CGPoint p = [touch locationInView:self];
+    currentPoint = p;
     
     CGRect trackingFrame = self.bounds;
     
@@ -439,7 +442,7 @@
         oneSegmentTime = 60 * 15;
     }
     
-    [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:NO coefficient:coef];
+    [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:NO coefficient:coef animateDirection:1 selectedPoint:currentPoint];
     
     NSDate *tempDate = [NSDate dateWithTimeInterval:0 sinceDate:self.endDateInitial];
     [scrollWithDate createNewViewWithDate:tempDate isNeedMinutes:YES];
@@ -476,7 +479,7 @@
         oneSegmentTime = 60 * 15;
     }
     
-    [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:YES coefficient:coef];
+    [scrollWithDate updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial segments:segments isNeedHours:YES coefficient:coef animateDirection:0 selectedPoint:currentPoint];
     [scrollWithVideo updateWithStartDate:[NSDate dateWithTimeIntervalSinceNow:self.startDateIntervalInitial] endDate:self.endDateInitial andDelta:creationDate.timeIntervalSinceNow];
     [scrollWithVideo createSubviewsWithVideoFragments:self.mArrayWithVideoFragments];
     
