@@ -233,6 +233,8 @@
     
     [popTip hide];
     
+    [self updateMarker];
+
     [super endTrackingWithTouch:touch withEvent:event];
 }
 
@@ -356,7 +358,33 @@
     float datePerPixel = selfWidth / dateDifference;
     
     float x1 = self.selectedDate.timeIntervalSinceNow - secondsFromGMT;
-    float x1dif = x1 - self.startDateIntervalInitial;
+    
+    float delta = INFINITY;
+    
+    for (NSDictionary *dict in self.mArrayWithVideoFragments)
+    {
+        float x22 = [[dict objectForKey:@"2"] floatValue] - fabs(creationDate.timeIntervalSinceNow);
+        
+        if (fabs(x22) < fabs(x1))
+        {
+           if (fabs(x1) - fabs(x22) < delta)
+           {
+               delta = fabs(x1) - fabs(x22);
+           }
+        }
+    }
+    
+    if (delta == INFINITY)
+    {
+        delta = 0;
+    }
+
+    self.currentDateInterval += delta;
+    self.selectedDate = [NSDate dateWithTimeIntervalSinceNow:self.currentDateInterval + secondsFromGMT];
+
+    NSLog(@"Current selected date = %@", self.selectedDate);
+    
+    float x1dif = x1 + delta - self.startDateIntervalInitial;
     float x1pos = x1dif * datePerPixel;
     
     [UIView animateWithDuration:0.1 animations:^{
@@ -484,8 +512,6 @@
     [scrollWithVideo createSubviewsWithVideoFragments:self.mArrayWithVideoFragments];
     
     // update time / move marker
-    [self updateMarker];
-    
    self.thumbControlStatic.frame = CGRectMake(selfWidth - (selfHeight * 0.7) / 2, selfHeight / 2  - (selfHeight * 0.7) / 2, selfHeight * 0.7, selfHeight * 0.7);
     [UIView animateWithDuration:0.1 animations:^{
         self.thumbControlStatic.hidden = NO;
