@@ -25,6 +25,8 @@
     int correctedSegments;
     
     int count;
+    
+    CGPoint currentSelectedPoint;
 }
 
 @end
@@ -70,7 +72,6 @@
     }
     
     [mArrayWithDates removeAllObjects];
-//    [mArrayWithViews removeAllObjects];
     [mArrayWithOffset removeAllObjects];
     [mArrayWithFinalDatesStrings removeAllObjects];
     
@@ -81,7 +82,8 @@
     self.coefficient = coef;
     timeDelta = endDate.timeIntervalSinceNow - startDate.timeIntervalSinceNow;
     correctedSegments = timeDelta / oneSegmentTime;
-
+    currentSelectedPoint = selectedPoint;
+    
     [self generateStartDates];
 }
 
@@ -189,6 +191,7 @@
             float deltaForDate = [[mArrayWithOffset objectAtIndex:correctedSegments-i] floatValue];
             
             UIView *masterView = [[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width / (correctedSegments+1)) * i - deltaForDate, self.frame.origin.y, 40, self.bounds.size.height)];
+            masterView.alpha = 0.0;
             TimeScrubberBorder *border = [[TimeScrubberBorder alloc] initWithFrame:CGRectMake(0, 20, 2.5, self.frame.size.height / 2)];
             [masterView addSubview:border];
             TimeScrubberLabel *label = [[TimeScrubberLabel alloc] initWithFrame:CGRectMake(0 - 20, 40, 40, 20)];
@@ -202,6 +205,10 @@
             [mArrayWithFinalDatesStrings addObject:tempString];
             [self addSubview:masterView];
             [mArrayWithViews addObject:masterView];
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                masterView.alpha = 1.0;
+            }];
         }
     }
     else
@@ -211,6 +218,7 @@
             float deltaForDate = [[mArrayWithOffset objectAtIndex:i] floatValue];
             
             UIView *masterView = [[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width / segments) * i - deltaForDate, self.frame.origin.y, 40, self.bounds.size.height)];
+            masterView.alpha = 0.0;
             TimeScrubberBorder *border = [[TimeScrubberBorder alloc] initWithFrame:CGRectMake(0, 20, 2.5, self.frame.size.height / 2)];
             [masterView addSubview:border];
             TimeScrubberLabel *label = [[TimeScrubberLabel alloc] initWithFrame:CGRectMake(0 - 20, 40, 40, 20)];
@@ -224,6 +232,10 @@
             [mArrayWithFinalDatesStrings addObject:tempString];
             [self addSubview:masterView];
             [mArrayWithViews addObject:masterView];
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                masterView.alpha = 1.0;
+            }];
         }
     }
 }
