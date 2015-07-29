@@ -235,6 +235,7 @@
     
     [self updateMarker];
 
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
     [super endTrackingWithTouch:touch withEvent:event];
 }
 

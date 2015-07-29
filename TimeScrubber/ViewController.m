@@ -35,7 +35,7 @@
     endDate1 = [NSDate date];
     startDate1 = [NSDate dateWithTimeInterval:-(3600 * 24) sinceDate:endDate1]; // one day
     
-    mTimeScrubber1 = [[TimeScrubber alloc] initWithFrame:CGRectMake(30, 200, self.view.bounds.size.width - 60, 50) withStartDate:startDate1 endDate:endDate1 segments:12 andVideoBlocks:sampleArrayWithBlocks1];
+    mTimeScrubber1 = [[TimeScrubber alloc] initWithFrame:CGRectMake(30, 50, self.view.bounds.size.width - 60, 50) withStartDate:startDate1 endDate:endDate1 segments:12 andVideoBlocks:sampleArrayWithBlocks1];
 //    [mTimeScrubber1 addTarget:self action:@selector(newValue:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:mTimeScrubber1];
     [mTimeScrubber1 updateEnable:YES];
@@ -51,7 +51,7 @@
     endDate2 = [NSDate date];
     startDate2 = [NSDate dateWithTimeInterval:-(3600 * 48) sinceDate:endDate2]; // two days
     
-    mTimeScrubber2 = [[TimeScrubber alloc] initWithFrame:CGRectMake(30, 300, self.view.bounds.size.width - 60, 50) withStartDate:startDate2 endDate:endDate2 segments:12 andVideoBlocks:sampleArrayWithBlocks2];
+    mTimeScrubber2 = [[TimeScrubber alloc] initWithFrame:CGRectMake(30, 125, self.view.bounds.size.width - 60, 50) withStartDate:startDate2 endDate:endDate2 segments:12 andVideoBlocks:sampleArrayWithBlocks2];
     [self.view addSubview:mTimeScrubber2];
     [mTimeScrubber2 updateEnable:YES];
     
@@ -66,7 +66,7 @@
     endDate3 = [NSDate date];
     startDate3 = [NSDate dateWithTimeInterval:-(3600 * 72) sinceDate:endDate3]; // three days
     
-    mTimeScrubber3 = [[TimeScrubber alloc] initWithFrame:CGRectMake(30, 400, self.view.bounds.size.width - 60, 50) withStartDate:startDate3 endDate:endDate3 segments:12 andVideoBlocks:sampleArrayWithBlocks3];
+    mTimeScrubber3 = [[TimeScrubber alloc] initWithFrame:CGRectMake(30, 200, self.view.bounds.size.width - 60, 50) withStartDate:startDate3 endDate:endDate3 segments:12 andVideoBlocks:sampleArrayWithBlocks3];
     [self.view addSubview:mTimeScrubber3];
     [mTimeScrubber3 updateEnable:YES];
     
@@ -81,7 +81,7 @@
     endDate4 = [NSDate date];
     startDate4 = [NSDate dateWithTimeInterval:-(3600 * 1) sinceDate:endDate4]; // custom 2h
     
-    mTimeScrubber4 = [[TimeScrubber alloc] initWithFrame:CGRectMake(30, 500, self.view.bounds.size.width - 60, 50) withStartDate:startDate4 endDate:endDate4 segments:12 andVideoBlocks:sampleArrayWithBlocks4];
+    mTimeScrubber4 = [[TimeScrubber alloc] initWithFrame:CGRectMake(30, 275, self.view.bounds.size.width - 60, 50) withStartDate:startDate4 endDate:endDate4 segments:12 andVideoBlocks:sampleArrayWithBlocks4];
     [self.view addSubview:mTimeScrubber4];
     [mTimeScrubber4 updateEnable:YES];
 }
