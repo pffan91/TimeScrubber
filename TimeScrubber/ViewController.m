@@ -33,7 +33,7 @@
     NSMutableArray *sampleArrayWithBlocks1 = [NSMutableArray arrayWithObjects:d1, d2, nil];
 
     endDate1 = [NSDate date];
-    startDate1 = [NSDate dateWithTimeInterval:-(3600 * 24) sinceDate:endDate1]; // one day
+    startDate1 = [NSDate dateWithTimeInterval:-(3600 * 13) sinceDate:endDate1]; // one day
     
     mTimeScrubber1 = [[TimeScrubber alloc] initWithFrame:CGRectMake(30, 50, self.view.bounds.size.width - 60, 50) withStartDate:startDate1 endDate:endDate1 segments:12 andVideoBlocks:sampleArrayWithBlocks1];
 //    [mTimeScrubber1 addTarget:self action:@selector(newValue:) forControlEvents:UIControlEventValueChanged];
@@ -49,7 +49,7 @@
     NSMutableArray *sampleArrayWithBlocks2 = [NSMutableArray arrayWithObjects:d3, d4, nil];
     
     endDate2 = [NSDate date];
-    startDate2 = [NSDate dateWithTimeInterval:-(3600 * 48) sinceDate:endDate2]; // two days
+    startDate2 = [NSDate dateWithTimeInterval:-(3600 * 24) sinceDate:endDate2]; // two days
     
     mTimeScrubber2 = [[TimeScrubber alloc] initWithFrame:CGRectMake(30, 125, self.view.bounds.size.width - 60, 50) withStartDate:startDate2 endDate:endDate2 segments:12 andVideoBlocks:sampleArrayWithBlocks2];
     [self.view addSubview:mTimeScrubber2];
@@ -70,18 +70,9 @@
     [self.view addSubview:mTimeScrubber3];
     [mTimeScrubber3 updateEnable:YES];
     
-    // 4
-    NSDate *startDate4;
-    NSDate *endDate4;
-    
-    NSDictionary *d7 = @{@"1" : @"0", @"2" : @"-3600"}; // 1h
-    NSDictionary *d8 = @{@"1" : @"-72000", @"2" : @"-79200"}; // 2h
-    NSMutableArray *sampleArrayWithBlocks4 = [NSMutableArray arrayWithObjects:d7, d8, nil];
-    
-    endDate4 = [NSDate date];
-    startDate4 = [NSDate dateWithTimeInterval:-(3600 * 1) sinceDate:endDate4]; // custom 2h
-    
-    mTimeScrubber4 = [[TimeScrubber alloc] initWithFrame:CGRectMake(30, 275, self.view.bounds.size.width - 60, 50) withStartDate:startDate4 endDate:endDate4 segments:12 andVideoBlocks:sampleArrayWithBlocks4];
+    // 4 offline
+    mTimeScrubber4 = [[TimeScrubber alloc] initInOfflineModeWithRect:CGRectMake(30, 275, self.view.bounds.size.width - 60, 50)];
+    [mTimeScrubber4 updateOfflinePresentation];
     [self.view addSubview:mTimeScrubber4];
     [mTimeScrubber4 updateEnable:YES];
 }

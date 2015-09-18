@@ -34,6 +34,8 @@
 
 // custom init
 - (id)initWithFrame:(CGRect)frame withStartDate:(NSDate *)startDate endDate:(NSDate *)endDate segments:(int)segmentsI andVideoBlocks:(NSMutableArray *)videoBlocks;
+- (id)initInOfflineModeWithRect:(CGRect)frame;
+- (void)updateOfflinePresentation;
 
 // get real data (needed for server)
 - (NSTimeInterval)getRealCurrentDate;

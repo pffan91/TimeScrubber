@@ -47,6 +47,9 @@
     int hoursInInSelectedInterval;
     
     CGPoint currentPoint;
+    
+    // offline view
+    UIView *offlineView;
 }
 
 #pragma mark Init
@@ -86,7 +89,7 @@
         if (segments / hoursInInSelectedInterval < 1.5) // by 1 hour
         {
             coef = 0;
-            oneSegmentTime = masterTimeDifference / segments;
+            oneSegmentTime = (floor(hoursInInSelectedInterval / segments) + 1) * 3600;
         }
         else if (segments / hoursInInSelectedInterval < 2.5) // by 30 mins
         {
@@ -129,6 +132,26 @@
         
         popTip = [AMPopTip popTip];
         popTip.popoverColor = [UIColor colorWithRed:0.263 green:0.501 blue:0.935 alpha:1.000];
+    }
+    
+    return self;
+}
+
+- (id)initInOfflineModeWithRect:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    
+    if (self)
+    {
+        self.backgroundColor = [UIColor clearColor];
+        selfHeight = frame.size.height;
+        selfWidth = frame.size.width;
+        isTouchEnded = NO;
+        isDragging = NO;
+        self.userInteractionEnabled = NO;
+        _minimumValue = 0.0;
+        _maximumValue = 24.0;
+        _value = 24.0;
     }
     
     return self;
@@ -523,6 +546,68 @@
     
     [self update];
     [self updateEnable:YES];
+}
+
+#pragma mark Offline Mode
+- (void)updateOfflinePresentation
+{
+    self.value = (([self totalDiskspace] - [self freeDiskspace]) * 24) / [self totalDiskspace];
+
+    if (!offlineView)
+    {
+        offlineView = [[UIView alloc] initWithFrame:CGRectMake(2.5, selfHeight * 0.5 - 7.5, (self.bounds.size.width / 24) * self.value, 15)];
+        offlineView.clipsToBounds = YES;
+        offlineView.backgroundColor = [UIColor greenColor];
+        [self addSubview:offlineView];
+    }
+    else
+    {
+        offlineView.frame = CGRectMake(2.5, selfHeight * 0.5 - 7.5, (self.bounds.size.width / 24) * self.value, 15);
+    }
+}
+
+- (uint64_t)freeDiskspace{
+    uint64_t totalSpace = 0;
+    uint64_t totalFreeSpace = 0;
+    
+    __autoreleasing NSError *error = nil;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSDictionary *dictionary = [[NSFileManager defaultManager] attributesOfFileSystemForPath:[paths lastObject] error: &error];
+    
+    if (dictionary) {
+        NSNumber *fileSystemSizeInBytes = [dictionary objectForKey: NSFileSystemSize];
+        NSNumber *freeFileSystemSizeInBytes = [dictionary objectForKey:NSFileSystemFreeSize];
+        totalSpace = [fileSystemSizeInBytes unsignedLongLongValue];
+        totalFreeSpace = [freeFileSystemSizeInBytes unsignedLongLongValue];
+        NSLog(@"Memory Capacity of %llu MiB with %llu MiB Free memory available.", ((totalSpace/1024ll)/1024ll), ((totalFreeSpace/1024ll)/1024ll));
+    }
+    else {
+        NSLog(@"Error Obtaining System Memory Info: Domain = %@, Code = %ld", [error domain], (long)[error code]);
+    }
+    
+    return totalFreeSpace;
+}
+
+- (uint64_t)totalDiskspace{
+    uint64_t totalSpace = 0;
+    uint64_t totalFreeSpace = 0;
+    
+    __autoreleasing NSError *error = nil;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSDictionary *dictionary = [[NSFileManager defaultManager] attributesOfFileSystemForPath:[paths lastObject] error: &error];
+    
+    if (dictionary) {
+        NSNumber *fileSystemSizeInBytes = [dictionary objectForKey: NSFileSystemSize];
+        NSNumber *freeFileSystemSizeInBytes = [dictionary objectForKey:NSFileSystemFreeSize];
+        totalSpace = [fileSystemSizeInBytes unsignedLongLongValue];
+        totalFreeSpace = [freeFileSystemSizeInBytes unsignedLongLongValue];
+        NSLog(@"Memory Capacity of %llu MiB with %llu MiB Free memory available.", ((totalSpace/1024ll)/1024ll), ((totalFreeSpace/1024ll)/1024ll));
+    }
+    else {
+        NSLog(@"Error Obtaining System Memory Info: Domain = %@, Code = %ld", [error domain], (long)[error code]);
+    }
+    
+    return totalSpace;
 }
 
 @end
